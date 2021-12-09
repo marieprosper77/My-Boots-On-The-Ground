@@ -1,0 +1,9 @@
+$StartDate = (get-date -year 2021 -month 11 -day 28)
+
+$EndDate = (get-date -year 2021 -month 11 -day 29)
+
+$StrSource ="source\ path\ here"
+
+$StrTarget= "C:\Users\prosperm\OneDrive"
+
+Get-ChildItem $StrSource | Where-Object {($_.LastWriteTime.Date -ge $StartDate.Date) -and ($_.LastWriteTime.Date -le $EndDate.Date)} | Copy-Item -Destination $StrTarget
